@@ -1,16 +1,12 @@
 name: NetworkManager Autopkgtest
 
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the main branch
+# Validation-only branch; production changes stay in upstream PR #626.
 on:
   push:
-    branches: [ main, 'stable/**' ]
-    paths-ignore:
-      - 'doc/**'
-  pull_request:
-    branches: [ '**' ]
-    paths-ignore:
-      - 'doc/**'
+    branches: [ codex/validate-u1-network-manager ]
+
+permissions:
+  contents: read
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
